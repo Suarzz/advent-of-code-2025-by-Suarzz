@@ -1,0 +1,47 @@
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Advent of Code Specific ###
+# Ignore all text files (likely inputs) to respect AoC copyright
+*.txt
+# Alternatively, if you want to keep notes in .txt, use this instead:
+# input.txt
+# test_input.txt
+
+### Java Compiled Files (Safety Net) ###
+# Even if your IDE puts them in /bin or /out, this catches strays
+*.class
+*.jar
+*.war
+
+### IntelliJ IDEA (Additions) ###
+# You missed the main config folder. Personal settings live here.
+.idea/
+*.iml
