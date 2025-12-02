@@ -12,6 +12,8 @@ Each day's solution is located in its own package under `src/`.
 
 | 01 | [Secret Entrance](src/Day1) | ⭐ | ⭐ |
 
+| 02 | [Gift Shop](src/Day2) | ⭐ | X |
+
 ## How to Run
 1. Clone the repository.
 2. Open the project in IntelliJ IDEA.
