@@ -9,6 +9,7 @@ Each day's solution is located in its own package under `src/`.
 ## Progress
 
 | Day | Name | Part 1 | Part 2 |
+
 | 01 | [Secret Entrance](src/Day1) | ⭐ | ⭐ |
 
 ## How to Run
