@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+//Source code made my @Suarzz Day 3 Part 1
 public class AOC1 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/Day3/input.txt"));

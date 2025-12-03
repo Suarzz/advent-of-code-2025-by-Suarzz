@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+//Source code made my @Suarzz Day 2 Part 2
 public class AOC2 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/Day2/input.txt"));

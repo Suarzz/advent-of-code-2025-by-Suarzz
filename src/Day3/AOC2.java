@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+//Source code made my @Suarzz Day 3 Part 2
 public class AOC2 {
     private static final int TOTAL_BATTERIES = 12;
 
@@ -13,30 +14,30 @@ public class AOC2 {
         long result = 0;
 
         while((line = reader.readLine()) != null) {
+            int left = 0;
             for (int i = TOTAL_BATTERIES-1; i>=0; i--) {
 
                 //We send the elegible numbers to represent the next digit.
                 //If for example we need to represent the 10s, we can't use the last digit
                 //because then we wouldn't have more digits to represent the units, so we exclude them
-
-                long[] resultArray = getMaxInString(line.substring(0, line.length()-i));
+                int right = line.length()-i;
+                long[] resultArray = getMaxInString(line, left, line.length()-i);
 
                 long partialResult = resultArray[0];
                 result += powerOfTen(i) * partialResult;
 
                 int digitIndex = (int) resultArray[1];
-                line = line.substring(digitIndex+1);
+                left = digitIndex+1;
             }
         }
         System.out.println(result);
     }
 
 
-    private static long[] getMaxInString(String sequence)  {
+    private static long[] getMaxInString(String sequence, int left, int right)  {
         if(sequence.isEmpty()) return new long[] {0L,0L};
 
         long max = 0;
-        int len = sequence.length();
 
         //Halfway through the problem I decided getting the index where we find
         //the max will be useful to create the second substring
@@ -44,7 +45,7 @@ public class AOC2 {
 
         //We do not need to convert into int because the ascii values of
         //the characters in the string follow the same order as the digits themselves 0..9
-        for(int i = 0; i<len; i++) {
+        for(int i = left; i<right; i++) {
             if (sequence.charAt(i) > max) {
                 max = sequence.charAt(i);
                 maxIndex = i;
