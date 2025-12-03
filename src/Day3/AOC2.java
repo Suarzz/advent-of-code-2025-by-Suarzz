@@ -21,27 +21,29 @@ public class AOC2 {
                 //If for example we need to represent the 10s, we can't use the last digit
                 //because then we wouldn't have more digits to represent the units, so we exclude them
                 int right = line.length()-i;
-                long[] resultArray = getMaxInString(line, left, line.length()-i);
 
-                long partialResult = resultArray[0];
+                int maxIndex = getMaxInString(line, left, line.length()-i);
+
+                //We subtract 48 to pass from the ascii value to int value
+                //Ex: 1 has the value 49 in ascii -> 49 - 48 = 1
+                long partialResult = line.charAt(maxIndex) - 48L;
                 result += powerOfTen(i) * partialResult;
 
-                int digitIndex = (int) resultArray[1];
-                left = digitIndex+1;
+                left = maxIndex+1;
             }
         }
         System.out.println(result);
     }
 
 
-    private static long[] getMaxInString(String sequence, int left, int right)  {
-        if(sequence.isEmpty()) return new long[] {0L,0L};
+    private static int getMaxInString(String sequence, int left, int right)  {
+        if(sequence.isEmpty()) return -1;
 
         long max = 0;
 
         //Halfway through the problem I decided getting the index where we find
         //the max will be useful to create the second substring
-        long maxIndex = 0;
+        int maxIndex = 0;
 
         //We do not need to convert into int because the ascii values of
         //the characters in the string follow the same order as the digits themselves 0..9
@@ -52,9 +54,7 @@ public class AOC2 {
             }
         }
 
-        //We subtract 48 to pass from the ascii value to int value
-        //Ex: 1 has the value 49 in ascii -> 49 - 48 = 1
-        return new long[] {max-48L,maxIndex};
+        return maxIndex;
     }
 
     private static long powerOfTen(int n) {

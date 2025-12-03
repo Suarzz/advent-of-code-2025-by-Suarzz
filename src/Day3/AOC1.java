@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+/*!DISCLAIMER: This code is "obsolete", when solving the second part I used a more generalist
+               approach that can solve both parts (and any input), which is also much cleaner.
+               This is only left here to compare it with the optimized version. */
+
 //Source code made my @Suarzz Day 3 Part 1
 public class AOC1 {
     public static void main(String[] args) throws IOException {
