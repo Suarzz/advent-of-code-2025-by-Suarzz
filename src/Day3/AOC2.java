@@ -1,0 +1,66 @@
+package Day3;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class AOC2 {
+    private static final int TOTAL_BATTERIES = 12;
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("src/Day3/input.txt"));
+        String line;
+        long result = 0;
+
+        while((line = reader.readLine()) != null) {
+            for (int i = TOTAL_BATTERIES-1; i>=0; i--) {
+
+                //We send the elegible numbers to represent the next digit.
+                //If for example we need to represent the 10s, we can't use the last digit
+                //because then we wouldn't have more digits to represent the units, so we exclude them
+
+                long[] resultArray = getMaxInString(line.substring(0, line.length()-i));
+
+                long partialResult = resultArray[0];
+                result += powerOfTen(i) * partialResult;
+
+                int digitIndex = (int) resultArray[1];
+                line = line.substring(digitIndex+1);
+            }
+        }
+        System.out.println(result);
+    }
+
+
+    private static long[] getMaxInString(String sequence)  {
+        if(sequence.isEmpty()) return new long[] {0L,0L};
+
+        long max = 0;
+        int len = sequence.length();
+
+        //Halfway through the problem I decided getting the index where we find
+        //the max will be useful to create the second substring
+        long maxIndex = 0;
+
+        //We do not need to convert into int because the ascii values of
+        //the characters in the string follow the same order as the digits themselves 0..9
+        for(int i = 0; i<len; i++) {
+            if (sequence.charAt(i) > max) {
+                max = sequence.charAt(i);
+                maxIndex = i;
+            }
+        }
+
+        //We subtract 48 to pass from the ascii value to int value
+        //Ex: 1 has the value 49 in ascii -> 49 - 48 = 1
+        return new long[] {max-48L,maxIndex};
+    }
+
+    private static long powerOfTen(int n) {
+        long result = 1;
+        while (n-- > 0) {
+            result *= 10;
+        }
+        return result;
+    }
+}
