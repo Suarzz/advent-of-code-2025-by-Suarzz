@@ -12,7 +12,9 @@ Each day's solution is located in its own package under `src/`.
 
 | 01 | [Secret Entrance](src/Day1) | ⭐ | ⭐ |
 
-| 02 | [Gift Shop](src/Day2) | ⭐ | X |
+| 02 | [Gift Shop](src/Day2) | ⭐ | ⭐ |
+
+| 03 | [Lobby](src/Day3) | ⭐ | ⭐ |
 
 ## How to Run
 1. Clone the repository.
